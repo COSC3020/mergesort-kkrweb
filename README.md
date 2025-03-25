@@ -34,7 +34,16 @@ The time complexity of my implementation can be analysed as follows:
 To compute a theta bound for the algorithm's worst case runtime, we must first consider how the functionality of the implementation is accomplished.
 
 First, we can consider the outer loop expressed via `for(var currentSubArrSize = 1; currentSubarrSize < arrSize; currentSubarrSize *= 2)`.
+The outer loop's behvaior can be seen as currentSubarrSize begins set at 1, and doubles until currentSubarrSize is greater than or equal to the value of arrSize.
 
+We can figure out how many times this iterates through via computing the number of times currentSubarrSize is able to double prior to reaching arrSize.
+This can be expressed through considering the equation: ............
+Solving this equation gives us the number of iterations that the outer loop will experience, at ........
+
+Next we must consider the behavior of the actual merging process within the code.
+This is accomplished through the inner loop `for(var leftStartPos = 0; leftStartPos < arrSize; leftStartPos += 2 * currentSubarrSize)`.
+The inner loop behavior can be explained as follows:
+......
 
 
 //
