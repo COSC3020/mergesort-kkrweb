@@ -23,7 +23,7 @@ Name: Kane Kriz
 
 Most Recent Edit: 25 March 2025
 
-Feedback Request 1 Date: X
+Feedback Request 1 Date: 25 March 2025
 
 
 //
@@ -39,8 +39,10 @@ The outer loop's behvaior can be seen as currentSubarrSize begins set at 1, and 
 
 We can figure out how many times this iterates through via computing the number of times currentSubarrSize is able to double prior to reaching arrSize.
 This can be expressed through considering the equation: 
-2^k >= n
-Solving this equation gives us the number of iterations that the outer loop will experience, at k >= log_2(n), meaning that the outer loop will ultimately run Θ(logn) times.
+2^x >= n
+(with n being the number of elements, and x being the number of times the outer loop runs)
+
+Solving this equation gives us the number of iterations that the outer loop will experience, at x >= log_2(n), meaning that the outer loop will ultimately run Θ(logn) times.
 
 Next we must consider the behavior of the actual merging process within the code.
 This is accomplished through the inner loop `for(var leftStartPos = 0; leftStartPos < arrSize; leftStartPos += 2 * currentSubarrSize)`, and the code's behavior within.
