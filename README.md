@@ -80,4 +80,4 @@ GeeksforGeeks. “InPlace Merge Sort.” GeeksforGeeks, 21 Nov. 2018, www.geeksf
 
 Sryheni, Said. “Non-Recursive Merge Sort | Baeldung on Computer Science.” Www.baeldung.com, 24 Sept. 2020, www.baeldung.com/cs/non-recursive-merge-sort.
 
-“Math.min() - JavaScript | MDN.” Developer.mozilla.org, developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min.
+“Math.min() - JavaScript | MDN.” Developer.mozilla.org, [developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min](url).
