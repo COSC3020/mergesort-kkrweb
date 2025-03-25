@@ -1,18 +1,29 @@
 // Kane Kriz
 // UWYO COSC 3020
 // Iterative, In-Place Mergesort Exercise
-// 24 March 2025
+// 25 March 2025
 //
 
 
+
+//
+
 //iterative and in place version of mergesort
-// cite logic help where applicable
 
 //kind of bought into not using a helper here, could have potentially made this logically easier to follow and eventually fix towards functionality
 
 //expanded comments as I was getting lost in the logic trying to fix the functionality bugs
 
 //
+
+//consulted the cited "non-recursive merge sort" and "In-Place Merge sort" separately, to balance attempting to get help with some of my logical mistakes
+//with also intentionally avoiding a resource that would provide both an iterative and in-place implementation at the same time.
+
+//viewing the non-recursive and in-place merge sort resources separately allowed me to help notice my errors in logic and bring the overall program to a working state
+
+//
+
+
 
 function mergesort(array) 
 {
@@ -39,12 +50,12 @@ function mergesort(array)
             var tempArr = [];
             
             //merging the two subarrays into tempArr in sorted order
-            //comparing elements from the left and right subarrays and add the smaller one to `tempArr`.
+            //comparing elements from the left and right subarrays and add the smaller one to tempArr
             while(leftSubArrPos < midPos && rightSubArrPos < rightEndPos) 
             {
                 if(array[leftSubArrPos] <= array[rightSubArrPos]) 
                 {
-                    //if the current element in the left subarray is smaller or equal add it to `tempArr` and move the left ptr forward
+                    //if the current element in the left subarray is smaller or equal add it to tempArr, move left ptr forward
                     tempArr.push(array[leftSubArrPos]);
                     leftSubArrPos++;
                 } 
