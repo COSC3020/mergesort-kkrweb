@@ -31,7 +31,10 @@ Feedback Request 1 Date: X
 
 RESPONSE: Not Complete
 The time complexity of my implementation can be analysed as follows:
-To compute a theta bound for the algorithm's worst case runtime, we must first consider
+To compute a theta bound for the algorithm's worst case runtime, we must first consider how the functionality of the implementation is accomplished.
+
+First, we can consider the outer loop expressed via 'for(var currentSubArrSize = 1; currentSubarrSize < arrSize; currentSubarrSize *= 2)'.
+
 
 
 //
