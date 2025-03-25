@@ -1,6 +1,7 @@
 // Kane Kriz
 // UWYO COSC 3020
-// 19 March 2025
+// Iterative, In-Place Mergesort Exercise
+// 24 March 2025
 //
 
 
@@ -17,12 +18,12 @@ function mergesort(array)
 {
     var arrSize = array.length; //convienence
     
-    for (var currentSubarrSize = 1; currentSubarrSize < arrSize; currentSubarrSize *= 2) 
+    for(var currentSubarrSize = 1; currentSubarrSize < arrSize; currentSubarrSize *= 2) 
     {
         //iterating through the array
         //merging pairs of subarrays of increasing size (via currentSubarrSize doubling between iterations)
         
-        for (var leftStartPos = 0; leftStartPos < arrSize; leftStartPos += 2 * currentSubarrSize) 
+        for(var leftStartPos = 0; leftStartPos < arrSize; leftStartPos += 2 * currentSubarrSize) 
         {
             //calculating the middle position midPos
             var midPos = Math.min(leftStartPos + currentSubarrSize, arrSize);
@@ -39,9 +40,9 @@ function mergesort(array)
             
             //merging the two subarrays into tempArr in sorted order
             //comparing elements from the left and right subarrays and add the smaller one to `tempArr`.
-            while (leftSubArrPos < midPos && rightSubArrPos < rightEndPos) 
+            while(leftSubArrPos < midPos && rightSubArrPos < rightEndPos) 
             {
-                if (array[leftSubArrPos] <= array[rightSubArrPos]) 
+                if(array[leftSubArrPos] <= array[rightSubArrPos]) 
                 {
                     //if the current element in the left subarray is smaller or equal add it to `tempArr` and move the left ptr forward
                     tempArr.push(array[leftSubArrPos]);
@@ -57,26 +58,26 @@ function mergesort(array)
             }
 
             //logic surrounding of the remaining potential leftover elements below
-            while (leftSubArrPos < midPos) 
+            while(leftSubArrPos < midPos) 
             {
                 tempArr.push(array[leftSubArrPos]);
                 leftSubArrPos++;
             }
         
-            while (rightSubArrPos < rightEndPos) 
+            while(rightSubArrPos < rightEndPos) 
             {
                 tempArr.push(array[rightSubArrPos]);
                 rightSubArrPos++;
             }
             
-            for (var i = 0; i < tempArr.length; i++) //copying of the merged elements from tempArr back into the original array
+            for(var i = 0; i < tempArr.length; i++) //copying of the merged elements from tempArr back into the original array
             {
                 array[leftStartPos + i] = tempArr[i];
             }
         }
     }
     
-    return array;
+    return array; //return sorted
 }
 
 //
