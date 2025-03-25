@@ -30,6 +30,7 @@ Feedback Request 1 Date: X
 
 
 RESPONSE:
+
 The time complexity of my implementation can be analysed as follows:
 To compute a theta bound for the algorithm's worst case runtime, we must first consider how the functionality of the implementation is accomplished.
 
@@ -39,7 +40,7 @@ The outer loop's behvaior can be seen as currentSubarrSize begins set at 1, and 
 We can figure out how many times this iterates through via computing the number of times currentSubarrSize is able to double prior to reaching arrSize.
 This can be expressed through considering the equation: 
 2^k >= n
-Solving this equation gives us the number of iterations that the outer loop will experience, at k >= log_2(n)
+Solving this equation gives us the number of iterations that the outer loop will experience, at k >= log_2(n), meaning that the outer loop will ultimately run Θ(logn) times.
 
 Next we must consider the behavior of the actual merging process within the code.
 This is accomplished through the inner loop `for(var leftStartPos = 0; leftStartPos < arrSize; leftStartPos += 2 * currentSubarrSize)`, and the code's behavior within.
@@ -49,8 +50,9 @@ The inner loop iterates through the array in sections of size 2* currentSubarrSi
 As we are aiming to compute the worst case complexity, we must consider the worst case of this inner loop being forced to iterate the maximum amount of times for a given array size.
 Knowing this, the inner loop can be observed to run O(n / (2*currentSubarrSize)) times given each iteration of the outer loop.
 
-The actual behavior of the inner loop (actual merging process) takes Θ(n) time as the time taken is dependent upon iterating through the entire array in order to properly merge the subarrays.
-
+The actual behavior of the inner loop (actual merging process) takes Θ(currentSubarrSize) time to merge a single pair.
+Across all merges in a single outer loop iteration, this merging process would take Θ(n) time as each element is processed through one time.
+ 
 Using these separate calculations for the iteration requirements of the outer and inner loop functionality of the implementation, we now can compute the overall theta bound for worst case runtime.
 This can be done through combining the number of iterations of the outer loop with the time taken for the merging process withn each iteration of the inner loop.
 
