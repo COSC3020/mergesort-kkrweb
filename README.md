@@ -28,6 +28,10 @@ Feedback Request 1 Date: 25 March 2025
 
 //
 
+Feedback Request 2 Date: 4 April 2025
+
+//
+
 
 RESPONSE:
 
@@ -52,17 +56,18 @@ The inner loop iterates through the array in sections of size 2* currentSubarrSi
 As we are aiming to compute the worst case complexity, we must consider the worst case of this inner loop being forced to iterate the maximum amount of times for a given array size.
 Knowing this, the inner loop can be observed to run O(n / (2*currentSubarrSize)) times given each iteration of the outer loop.
 
-The actual behavior of the inner loop (actual merging process) takes Θ(currentSubarrSize) time to merge a single pair.
-Across all merges in a single outer loop iteration, this merging process would take Θ(n) time as each element is processed through one time.
+The actual behavior of the inner loop (actual merging process) takes Θ(currentSubarrSize^2) time to merge a single pair in the worst case, due to in place shifting.
+Across all merges in a single outer loop iteration, this merging process would take Θ(n*currentSubarrSize) time in the worst case, because each of the Θ(n / currentSubarrSize) merges costs Θ(currentSubarrSize).
  
 Using these separate calculations for the iteration requirements of the outer and inner loop functionality of the implementation, we now can compute the overall theta bound for worst case runtime.
 This can be done through combining the number of iterations of the outer loop with the time taken for the merging process withn each iteration of the inner loop.
 
-The outer loop runs log_2(n) times, and within each iteration, the merging process takes Θ(n) time. 
-Due to this, the total time complexity is Θ(log⁡_2(n) * n) = Θ(nlog⁡_2(n))
+The outer loop runs Θ(log n) times.
+Summing Θ(n·currentSubarrSize) across all iterations results in total cost of Θ(n^2).
+This occurs as the in place merging requires shifting elements within the array during each of the merges performed.
 
-As logarithms that have different bases from one another are proportional, and in Θ asymptotic notation constant factors are ignored in the overall calculation, this total time complexity can be simplified (away from the log_2 expressed above).
-The simplified theta bound for the worst case complexity would then be Θ(nlog⁡n).
+The dominant term here is n^2 due to the in place merging implementation.
+This results in Θ(n^2) worst case time complexity, rather than the log values (simplified or not) being directly relevant in this final result, due to the nature of asymptotic complexity.
 
 
 //
@@ -73,8 +78,8 @@ Plagiarism Acknowledgement: I certify that I have listed all sources used to com
 
 Citations:
 
-Note: Consulted separate in-place and iterative merge sort examples below to help with fixing the logic of my code, cited below.
-Intentionally avoided using any resource that would show accomplishing an in-place and iterative mergesort within the same implementation, as that is the point of me to accomplish during this exercise.
+Note: Consulted separate in place and iterative merge sort examples below to help with fixing the logic of my code, cited below.
+Intentionally avoided using any resource that would show accomplishing an in place and iterative mergesort within the same implementation, as that is the point of me to accomplish during this exercise.
 
 GeeksforGeeks. “InPlace Merge Sort.” GeeksforGeeks, 21 Nov. 2018, www.geeksforgeeks.org/in-place-merge-sort/.
 
