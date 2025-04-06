@@ -25,10 +25,9 @@ Most Recent Edit: 25 March 2025
 
 Feedback Request 1 Date: 25 March 2025
 
-
-//
-
 Feedback Request 2 Date: 4 April 2025
+
+Feedback Request 3 Date: 5 April 2025
 
 //
 
@@ -63,11 +62,11 @@ Using these separate calculations for the iteration requirements of the outer an
 This can be done through combining the number of iterations of the outer loop with the time taken for the merging process withn each iteration of the inner loop.
 
 The outer loop runs Θ(log n) times.
-Summing Θ(n·currentSubarrSize) across all iterations results in total cost of Θ(n^2).
-This occurs as the in place merging requires shifting elements within the array during each of the merges performed.
+Summing Θ(n) work across all of the Θ(log n) iterations results in total cost of Θ(n * log n).
+Due to the in place shifting, each merge costs Θ(n * currentSubarrSize), resulting in Θ(n^2) work overall.
+This occurs as the implemented in place merging requires shifting elements within the array during each of the merges performed, causing the above outlined additional work.
 
-The dominant term here is n^2 due to the in place merging implementation.
-This results in Θ(n^2) worst case time complexity, rather than the log values (simplified or not) being directly relevant in this final result, due to the nature of asymptotic complexity.
+This results in Θ(n^2) worst case time complexity.
 
 
 //
