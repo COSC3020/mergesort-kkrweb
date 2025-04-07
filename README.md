@@ -55,18 +55,16 @@ The inner loop iterates through the array in sections of size 2* currentSubarrSi
 As we are aiming to compute the worst case complexity, we must consider the worst case of this inner loop being forced to iterate the maximum amount of times for a given array size.
 Knowing this, the inner loop can be observed to run O(n / (2*currentSubarrSize)) times given each iteration of the outer loop.
 
-The actual behavior of the inner loop (actual merging process) takes Θ(currentSubarrSize^2) time to merge a single pair in the worst case, due to in place shifting.
-Across all merges in a single outer loop iteration, this merging process would take Θ(n*currentSubarrSize) time in the worst case, because each of the Θ(n / currentSubarrSize) merges costs Θ(currentSubarrSize).
- 
+The actual behavior of the inner loop (actual merging process) takes Θ(currentSubarrSize) time to merge a single pair in the worst case, due to in place shifting.
+Across all merges in a single outer loop iteration, this merging process would take Θ(n) time in the worst case, because each of the Θ(n / currentSubarrSize) merges costs Θ(currentSubarrSize).
+
 Using these separate calculations for the iteration requirements of the outer and inner loop functionality of the implementation, we now can compute the overall theta bound for worst case runtime.
 This can be done through combining the number of iterations of the outer loop with the time taken for the merging process withn each iteration of the inner loop.
 
-The outer loop runs Θ(log n) times.
-Summing Θ(n) work across all of the Θ(log n) iterations results in total cost of Θ(n * log n).
-Due to the in place shifting, each merge costs Θ(n * currentSubarrSize), resulting in Θ(n^2) work overall.
-This occurs as the implemented in place merging requires shifting elements within the array during each of the merges performed, causing the above outlined additional work.
+The outer loop runs Θ(log n) times. 
+Summing the Θ(n) work across all of the Θ(log n) iterations results in total cost of Θ(n log n). 
 
-This results in Θ(n^2) worst case time complexity.
+This results in Θ(n log n) worst case time complexity.
 
 
 //
