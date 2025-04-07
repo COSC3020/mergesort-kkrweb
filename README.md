@@ -25,9 +25,16 @@ Most Recent Edit: 25 March 2025
 
 Feedback Request 1 Date: 25 March 2025
 
+
+//
+
+
 Feedback Request 2 Date: 4 April 2025
 
 Feedback Request 3 Date: 5 April 2025
+
+and more were made, lost count...
+
 
 //
 
@@ -38,7 +45,7 @@ The time complexity of my implementation can be analysed as follows:
 To compute a theta bound for the algorithm's worst case runtime, we must first consider how the functionality of the implementation is accomplished.
 
 First, we can consider the outer loop expressed via `for(var currentSubArrSize = 1; currentSubarrSize < arrSize; currentSubarrSize *= 2)`.
-The outer loop's behvaior can be seen as currentSubarrSize begins set at 1, and doubles until currentSubarrSize is greater than or equal to the value of arrSize.
+The outer loop's behavior is Θ(log n) as currentSubarrSize doubles each iteration until reaching arrSize.
 
 We can figure out how many times this iterates through via computing the number of times currentSubarrSize is able to double prior to reaching arrSize.
 This can be expressed through considering the equation: 
@@ -55,16 +62,16 @@ The inner loop iterates through the array in sections of size 2* currentSubarrSi
 As we are aiming to compute the worst case complexity, we must consider the worst case of this inner loop being forced to iterate the maximum amount of times for a given array size.
 Knowing this, the inner loop can be observed to run O(n / (2*currentSubarrSize)) times given each iteration of the outer loop.
 
-The actual behavior of the inner loop (actual merging process) takes Θ(currentSubarrSize) time to merge a single pair in the worst case, due to in place shifting.
-Across all merges in a single outer loop iteration, this merging process would take Θ(n) time in the worst case, because each of the Θ(n / currentSubarrSize) merges costs Θ(currentSubarrSize).
+The actual behavior of the inner loop (actual merging process) takes Θ(currentSubarrSize^2) time to merge a single pair in the worst case, due to in place shifting.
+Across all merges in a single outer loop iteration, this merging process would take Θ(n^2) time in the worst case, because each of the Θ(n / currentSubarrSize) merges costs Θ(currentSubarrSize^2), with currentSubarrSize growing exponentially.
 
 Using these separate calculations for the iteration requirements of the outer and inner loop functionality of the implementation, we now can compute the overall theta bound for worst case runtime.
 This can be done through combining the number of iterations of the outer loop with the time taken for the merging process withn each iteration of the inner loop.
 
 The outer loop runs Θ(log n) times. 
-Summing the Θ(n) work across all of the Θ(log n) iterations results in total cost of Θ(n log n). 
+Summing the Θ(n^2) work per level across Θ(log n) levels gives Θ(n^2 * log n) worst-case time complexity for the in place mergesort implementation.
 
-This results in Θ(n log n) worst case time complexity.
+This results in overall Θ(n^2 * log n) worst case time complexity.
 
 
 //
@@ -76,6 +83,7 @@ Plagiarism Acknowledgement: I certify that I have listed all sources used to com
 Citations:
 
 Note: Consulted separate in place and iterative merge sort examples below to help with fixing the logic of my code, cited below.
+
 Intentionally avoided using any resource that would show accomplishing an in place and iterative mergesort within the same implementation, as that is the point of me to accomplish during this exercise.
 
 GeeksforGeeks. “InPlace Merge Sort.” GeeksforGeeks, 21 Nov. 2018, www.geeksforgeeks.org/in-place-merge-sort/.
